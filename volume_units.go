@@ -33,6 +33,8 @@ var (
 	FluidPint           = NewUnit("fluid pint", "fl pt", Volume, US)
 	FluidGallon         = NewUnit("fluid gallon", "", Volume, US)
 	CustomaryFluidOunce = NewUnit("customary fluid ounce", "", Volume, US)
+
+	Drop                = NewUnit("drop", "dr", Volume, SI)
 )
 
 func init() {
@@ -45,4 +47,6 @@ func init() {
 	NewRatioConversion(FluidPint, Liter, 0.473176473)
 	NewRatioConversion(FluidGallon, Liter, 3.785411784)
 	NewRatioConversion(CustomaryFluidOunce, MilliLiter, 29.5735295625)
+
+	NewRatioConversion(MilliLiter, Drop, 6.0)
 }
