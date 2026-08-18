@@ -34,7 +34,8 @@ var (
 	FluidGallon         = NewUnit("fluid gallon", "", Volume, US)
 	CustomaryFluidOunce = NewUnit("customary fluid ounce", "", Volume, US)
 
-	Drop                = NewUnit("drop", "dr", Volume, SI)
+	Drop     = NewUnit("drop", "dr", Volume, US)
+	BarSpoon = NewUnit("bar spoon", "bsp", Volume, US)
 )
 
 func init() {
@@ -49,4 +50,5 @@ func init() {
 	NewRatioConversion(CustomaryFluidOunce, MilliLiter, 29.5735295625)
 
 	NewRatioConversion(MilliLiter, Drop, 6.0)
+	NewRatioConversion(BarSpoon, FluidOunce, 2.0)
 }
