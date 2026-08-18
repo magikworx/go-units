@@ -34,8 +34,12 @@ var (
 	FluidGallon         = NewUnit("fluid gallon", "", Volume, US)
 	CustomaryFluidOunce = NewUnit("customary fluid ounce", "", Volume, US)
 
-	Drop     = NewUnit("drop", "dr", Volume, US)
-	BarSpoon = NewUnit("bar spoon", "bsp", Volume, US)
+	Drop       = NewUnit("drop", "dr", Volume, US)
+	BarSpoon   = NewUnit("bar spoon", "bsp", Volume, US, UnitOptionAliases("barspoon", "barspoons"))
+	Dash       = NewUnit("dash", "ds", Volume, US, UnitOptionAliases("dashes"))
+	Teaspoon   = NewUnit("teaspoon", "tsp", Volume, US, UnitOptionAliases("teaspoons"))
+	Tablespoon = NewUnit("tablespoon", "tbsp", Volume, US, UnitOptionAliases("tablespoons"))
+	Cup        = NewUnit("cup", "c", Volume, US, UnitOptionAliases("cups"))
 )
 
 func init() {
@@ -49,6 +53,10 @@ func init() {
 	NewRatioConversion(FluidGallon, Liter, 3.785411784)
 	NewRatioConversion(CustomaryFluidOunce, MilliLiter, 29.5735295625)
 
-	NewRatioConversion(MilliLiter, Drop, 6.0)
-	NewRatioConversion(BarSpoon, FluidOunce, 2.0)
+	NewRatioConversion(Dash, Drop, 6.0)
+	NewRatioConversion(BarSpoon, Drop, 100.0)
+	NewRatioConversion(FluidOunce, BarSpoon, 8.0)
+	NewRatioConversion(Teaspoon, Drop, 100.0)
+	NewRatioConversion(Tablespoon, Teaspoon, 3.0)
+	NewRatioConversion(Cup, FluidOunce, 8.0)
 }
